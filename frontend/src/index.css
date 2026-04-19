@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Dark mode (default) */
+  body {
+    @apply bg-steel-900 text-steel-100 font-sans;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-steel-800; }
+  ::-webkit-scrollbar-thumb { @apply bg-steel-600 rounded; }
+
+  /* Light mode overrides */
+  html:not(.dark) body {
+    @apply bg-slate-50 text-slate-800;
+  }
+  html:not(.dark) ::-webkit-scrollbar-track { @apply bg-slate-100; }
+  html:not(.dark) ::-webkit-scrollbar-thumb { @apply bg-slate-300 rounded; }
+}
+
+@layer components {
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors font-medium;
+  }
+  .btn-secondary {
+    @apply bg-steel-700 hover:bg-steel-600 text-steel-100 px-4 py-2 rounded-lg transition-colors font-medium;
+  }
+  html:not(.dark) .btn-secondary {
+    @apply bg-slate-200 hover:bg-slate-300 text-slate-700;
+  }
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors font-medium;
+  }
+
+  /* ── Card ── */
+  .card {
+    @apply bg-steel-800 border border-steel-700 rounded-xl p-4;
+  }
+  html:not(.dark) .card {
+    @apply bg-white border-slate-200 shadow-sm;
+  }
+
+  /* ── Input ── */
+  .input {
+    @apply bg-steel-700 border border-steel-600 text-steel-100 rounded-lg px-3 py-2
+           focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 w-full;
+  }
+  html:not(.dark) .input {
+    @apply bg-white border-slate-300 text-slate-800;
+  }
+
+  /* ── Tag ── */
+  .tag {
+    @apply bg-steel-700 text-steel-300 text-xs px-2 py-0.5 rounded-full border border-steel-600;
+  }
+  html:not(.dark) .tag {
+    @apply bg-slate-100 text-slate-600 border-slate-300;
+  }
+}
+
+@media print {
+  body { background: white !important; color: black !important; }
+  aside, .print\:hidden { display: none !important; }
+  .report-content h1, .report-content h2, .report-content h3 { color: black !important; }
+  .report-content p, .report-content li, .report-content td { color: #333 !important; }
+  .report-content table { border: 1px solid #ccc !important; }
+  .report-content th { background: #1e3a5f !important; color: white !important; }
+  .report-content blockquote { border-left: 4px solid #1e3a5f !important; background: #f0f4f8 !important; }
+}

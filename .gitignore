@@ -1,0 +1,29 @@
+# ── Secrets & environment ─────────────────────────────────────────────────
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# ── Python ────────────────────────────────────────────────────────────────
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+*.egg-info/
+
+# ── Database & uploads ────────────────────────────────────────────────────
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+backend/chroma_db/
+uploads/
+
+# ── Node / Frontend ───────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ── OS & editor ───────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.7z
